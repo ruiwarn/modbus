@@ -1,0 +1,23 @@
+{
+    "serial_settings": {
+        "port": "COM6",
+        "baudrate": 9600,
+        "parity": "N",
+        "stopbits": 1.0,
+        "bytesize": 8,
+        "timeout": 10000.0
+    },
+    "last_protocol": "古瑞瓦特逆变器 Modbus RTU Protocol_II V1.24简版",
+    "protocols": {
+        "古瑞瓦特逆变器 Modbus RTU Protocol_II V1.24简版": {
+            "id": "growatt_inverter",
+            "description": "古瑞瓦特逆变器通信协议",
+            "config_file": "growatt_protocol.json"
+        },
+        "正泰——CPS SCAxxKTL-T 系列 Modbus协议": {
+            "id": "chint_inverter",
+            "description": "正泰CPS系列逆变器通信协议",
+            "config_file": "chint_protocol.json"
+        }
+    }
+}

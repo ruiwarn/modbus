@@ -1,0 +1,62 @@
+{
+    "registers": {
+        "0x0000": {
+            "name": "状态字",
+            "length": 1,
+            "type": "uint16",
+            "description": "设备状态",
+            "values": {
+                "0": "待机",
+                "1": "正常",
+                "2": "故障"
+            }
+        },
+        "0x0001": {
+            "name": "故障字",
+            "length": 1,
+            "type": "uint16",
+            "description": "故障信息",
+            "values": {
+                "0": "无故障",
+                "1": "过压保护",
+                "2": "欠压保护",
+                "3": "过温保护"
+            }
+        },
+        "0x0002": {
+            "name": "输出功率",
+            "length": 2,
+            "type": "float32",
+            "description": "当前输出功率值",
+            "unit": "W",
+            "scale": 0.1,
+            "variable_mapping": {
+                "name": "power",
+                "conversion": {
+                    "read": "value * 1000",
+                    "write": "value / 1000"
+                }
+            }
+        },
+        "0x0004": {
+            "name": "输出电压",
+            "length": 2,
+            "type": "float32",
+            "description": "输出电压值",
+            "unit": "V",
+            "scale": 0.1,
+            "variable_mapping": {
+                "name": "voltage",
+                "conversion": {
+                    "read": "value",
+                    "write": "value"
+                }
+            }
+        }
+    },
+    "function_codes": {
+        "03": "读保持寄存器",
+        "06": "写单个寄存器",
+        "16": "写多个寄存器"
+    }
+} 

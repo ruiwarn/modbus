@@ -1,0 +1,55 @@
+{
+    "registers": {
+        "0x3000": {
+            "name": "实时功率",
+            "length": 2,
+            "type": "float32",
+            "description": "当前输出功率",
+            "unit": "W",
+            "scale": 0.1,
+            "variable_mapping": {
+                "name": "power",
+                "conversion": {
+                    "read": "value * 1000",  // 转换为kW
+                    "write": "value / 1000"  // 转换回W
+                }
+            }
+        },
+        "0x3002": {
+            "name": "电网电压",
+            "length": 2,
+            "type": "float32",
+            "description": "电网端电压值",
+            "unit": "V",
+            "scale": 0.1,
+            "variable_mapping": {
+                "name": "voltage",
+                "conversion": {
+                    "read": "value",
+                    "write": "value"
+                }
+            }
+        },
+        "0x3004": {
+            "name": "电网频率",
+            "length": 2,
+            "type": "float32",
+            "description": "电网频率值",
+            "unit": "Hz",
+            "scale": 0.01
+        },
+        "0x3006": {
+            "name": "设备温度",
+            "length": 2,
+            "type": "float32",
+            "description": "设备内部温度",
+            "unit": "℃",
+            "scale": 0.1
+        }
+    },
+    "function_codes": {
+        "03": "读保持寄存器",
+        "06": "写单个寄存器",
+        "16": "写多个寄存器"
+    }
+} 
